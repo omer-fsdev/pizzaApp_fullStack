@@ -1,0 +1,20 @@
+{% extends 'pizzas/base.html' %} 
+{% block content %}
+
+<div
+  class="position-absolute end-0 col-lg-6 col-sm-12 shadow mt-5"
+>
+  <div class="col-12 col-sm-11 col-md-8 bg-warning rounded">
+    <div class="alert alert-warning text-center text-dark p-1 fst-italic">
+      <h2>Registration Slice</h2>
+    </div>
+    <div class="pt-0 text-white">
+      <form action="" method="POST" class="p-2 fst-italic bg-danger col-12 d-flex flex-column gap-4 align-items-center">
+        {{ form.as_div }} {% csrf_token %}
+        <input type="submit" value="REGISTER" class="btn btn-success btn-lg fst-italic px-5 py-4 shadow rounded-start-circle align-self-end" />
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

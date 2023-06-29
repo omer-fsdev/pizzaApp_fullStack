@@ -1,0 +1,36 @@
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2020/03/25/21/05/pizza-4968645_1280.jpg");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.navbar {
+  background-color: white;
+}
+
+/* .homeImg {
+  background-image: url("https://cdn.pixabay.com/photo/2020/03/25/21/05/pizza-4968645_1280.jpg");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh-121px);
+  background-attachment: fixed;
+} */
+
+#warning {
+  margin-top: 10px;
+  background-color: lightyellow;
+  margin: auto;
+  height: 50px;
+  text-align: center;
+}
+
+#success {
+  margin-top: 4px;
+  background-color: lightgreen;
+  margin: auto;
+  height: 40px;
+  text-align: center;
+}

@@ -1,0 +1,49 @@
+{% extends 'pizzas/base.html' %} 
+
+{% block content %}
+<div class="d-flex flex-column justify-content-center mx-auto mt-5 col-md-10 col-lg-8 col-xl-7">
+    <div class="alert text-center p-1 shadow mx-3">
+        <hr class="text-white shadow">
+        <h1 class="display-6 fst-italic text-light">
+            My Orders 
+            <span class="fst-normal">😋</span>
+        </h1>
+        <hr class="text-white shadow">
+    </div>
+    {% for order in orders %}
+    <div class="card mx-3 mx-sm-1 mx-lg-0 mt-0 mb-1 shadow">
+        <div class="row g-0">
+            <div class="col-sm-5">
+                <img
+                src="{{ order.pizza.image.url }}"
+                class="img-fluid rounded-start h-100"
+                alt="pizza"
+                />
+            </div>
+            <div class="col-sm-7 d-flex align-items-center">
+                <div class="card-body text-center">
+                    <p class="card-text">
+                        <ul class="list-group list-group-flush list-group-horizontal">
+                            <li class="list-group-item border-0 fw-bold fst-italic text-danger mx-auto">
+                                🍕 <span class="text-warning fst-italic">Pizza: </span>{{ order.pizza }}
+                            </li>
+                            <li class="list-group-item border-0 fw-bold fst-italic text-danger mx-auto">
+                                🍕 <span class="text-warning fst-italic">Size: </span>{{ order.size }}
+                            </li>
+                            <li class="list-group-item border-0 fw-bold fst-italic text-danger mx-auto">
+                                🍕 <span class="text-warning fst-italic">Qty: </span>{{ order.quantity }}
+                            </li>
+                        </ul>
+                    </p>
+                    <div class="d-flex justify-content-center mt-4 mt-md-5">
+                        <a href="{% url 'update_order' order.id %}" class="btn btn-success px-5 mx-auto">UPDATE</a>
+                        <a href="{% url 'delete_order' order.id %}" class="btn btn-danger px-5 mx-auto">DELETE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

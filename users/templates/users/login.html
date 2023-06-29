@@ -1,0 +1,25 @@
+{% extends 'pizzas/base.html' %} 
+
+{% block content %}
+<div class="col-11 mx-auto shadow mt-5 pt-lg-4">
+  <div class="bg-warning rounded col-11 col-sm-7 col-md-6 col-lg-5 mx-auto me-md-4 me-lg-5 ms-md-auto">
+    <div class="alert alert-warning text-center text-dark p-1 fst-italic">
+      <h2>Delicious Login</h2>
+    </div>
+    <div class="pt-0 text-white">
+      <form
+        action=""
+        method="POST"
+        class="p-2 fst-italic bg-danger col-12 d-flex flex-column gap-4 align-items-center"
+      >
+        {{ form.as_div }} {% csrf_token %}
+        <input
+          type="submit"
+          value="LOGIN"
+          class="btn btn-success btn-lg fst-italic px-5 py-4 shadow rounded-start-circle align-self-end"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

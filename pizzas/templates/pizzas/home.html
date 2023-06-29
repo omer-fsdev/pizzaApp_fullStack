@@ -1,0 +1,26 @@
+{% extends 'pizzas/base.html' %} {% load static %} 
+
+{% block content %}
+<div class="homeImg">
+  {% if messages %} 
+  {% for message in messages %} 
+  {% if message.tags == "warning" %}
+  <div id="warning" class="message rounded col-md-2">{{ message }}</div>
+  {% else %}
+  <div id="success" class="message rounded col-md-2">{{ message }}</div>
+  {% endif %} {% endfor %} {% endif %}
+</div>
+<div class="container-fluid text-white mt-md-3 mt-lg-5 d-flex flex-column align-items-end ms-auto me-5 col-sm-11 col-md-10 col-lg-9 gap-lg-3 col-xl-8">
+  <h1 class="fst-italic text-capitalize display-5 ms-md-5 align-self-start mt-4 shadow"><span class="ms-sm-5">Welcome to</span></h1>
+  <h1 class="align-self-center">
+    <a class="text-decoration-none shadow me-5" href="/"
+        ><span class="fst-italic fw-bold display-1 text-danger"
+          ><span class="text-warning">Pizza</span> Point</span
+        ></a
+      >
+  </h1>
+  <h1 class="fst-italic text-capitalize me-lg-2">
+    <a class="text-decoration-none text-light display-6 shadow" href="{% url 'pizzas' %}">Let's <span class="display-4">order</span> <br>something <span class="display-4">delicious</span>! <span class="fst-normal">😋</span></a>
+    </h1>
+</div>
+{% endblock content %}

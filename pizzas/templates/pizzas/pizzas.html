@@ -1,0 +1,40 @@
+{% extends 'pizzas/base.html' %}
+
+
+{% block content %}
+
+    <div class="d-flex justify-content-around flex-wrap mt-5">
+            
+            {% for pizza in pizzas %}
+            <div class="card mb-3 shadow" style="max-width: 560px;">
+                <div class="row g-0">
+                  <div class="col-md-7">
+                    <img src="{{pizza.image.url}}" class="img-fluid rounded-start h-100" alt="pizza">
+                  </div>
+                  <div class="col-md-5">
+                    <div class="card-body">
+                      <h5 class="card-title ms-3 fst-italic text-danger fw-bold">{{ pizza.name }}</h5>
+                      <p class="card-text">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 disabled">{{ pizza.topping.all | join:", " }}</li>
+                            <li class="list-group-item border-0 "><strong>{{ pizza.price }} €</strong></li>
+                        </ul>
+                      </p>
+                      
+                      {% if user.is_authenticated %}
+                        <p class="card-text"><a class="btn btn-warning ms-3" href="{% url 'order' pizza.id %}">ORDER</a></p>
+                      {% else %}
+                      <p class="card-text  ms-3"><a class="" href="{% url 'user_login' %}">Please login to</a> <a class="btn btn-sm btn-warning  disabled" href="#">ORDER</a></p>
+                      
+                      {% endif %}
+                        
+                    </div>
+                  </div>
+                </div>
+              </div>             
+            {% endfor %}
+                
+    </div>
+    
+{% endblock content %}
+    

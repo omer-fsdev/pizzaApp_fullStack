@@ -1,0 +1,28 @@
+{% extends 'pizzas/base.html' %}
+
+
+{% block content %}
+<div class="col-lg-6 ms-lg-auto ms-md-5 me-md-5 mx-auto mx-sm-3 d-flex justify-content-center align-items-center mt-5">
+    <div class="card" style="width: 100%;">
+        <img src="{{ pizza.image.url }}" class="card-img-top" alt="order details">
+        <div class="card-body text-center">
+         <h5 class="card-title fst-italic text-danger fw-bold display-6">{{ pizza.name }}</h5>
+         <p class="card-text">
+            <ul class="list-group">
+                <li class="list-group-item border-0">{{ pizza.topping.all | join:", " }}</li>
+                <li class="list-group-item border-0"><strong>{{ pizza.price }} €</strong></li>
+            </ul>
+         </p>
+         <div>
+            <form action="" method="POST" class="text-start fw-bold d-flex flex-column">
+              {% csrf_token %}
+              {{ form }}
+              <input class="btn btn-lg btn-success mt-3 fw-bold" type="submit" value="UPDATE ORDER">
+            </form>
+          </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
+    

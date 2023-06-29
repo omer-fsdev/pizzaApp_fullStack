@@ -1,0 +1,49 @@
+{% load static %}
+
+<!-- navabar start -->
+<nav class="navbar navbar-expand-lg navbar navbar-white sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand alert-warning ms-2 me-5" href="/">
+      <img
+        src="{% static 'images/logo.png' %}"
+        alt="Hi!"
+        width="95"
+        height="95"
+      />
+    </a>
+    <ul
+      class="navbar-nav fs-2 text-center fw-semibold ms-5 me-3 font-monospace fst-italic bg-success rounded"
+    >
+      <li class="nav-item bg-warning px-3 px-sm-5 px-lg-3 rounded-start">
+        <a class="nav-link text-light py-0 py-lg-1" href="{% url 'pizzas' %}">Pizzas</a>
+      </li>
+      {% if user.is_authenticated %}
+        <li class="nav-item bg-success px-3 px-sm-5 px-lg-2 rounded">
+          <a class="nav-link text-light py-0 py-lg-1" href="{% url 'my_orders' %}">MyOrders</a>
+        </li>
+        <li class="nav-item bg-warning px-3 px-sm-5 px-lg-3 rounded-end">
+          <a class="nav-link text-light py-0 py-lg-1" href="{% url 'user_logout' %}">Logout</a>
+        </li>
+      {% else %}
+        <li class="nav-item bg-success px-3 px-sm-5 px-lg-1 rounded">
+          <a class="nav-link text-light py-0 py-lg-1" href="{% url 'register' %}">Register</a>
+        </li>
+        <li class="nav-item bg-warning px-3 px-sm-5 px-lg-4 rounded-end">
+          <a class="nav-link text-light py-0 py-lg-1" href="{% url 'user_login' %}">Login</a>
+        </li>
+      {% endif %}
+        
+      
+      
+      
+    </ul>
+
+    <div class="collapse navbar-collapse" id="navbars-host">
+      <a class="text-decoration-none text-center ms-auto me-4" href="/"
+        ><span class="fst-italic fw-bold display-3 text-danger"
+          ><span class="text-warning">Pizza</span> Point</span
+        ></a
+      >
+    </div>
+  </div>
+</nav>
